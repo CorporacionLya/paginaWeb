@@ -1,259 +1,420 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporación Lya Global SAC | Uniformes y Confección Textil</title>
-    <!-- Tailwind CSS para el diseño rápido y responsivo -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Iconos de FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Personalización de la paleta de colores sugerida */
-        :root {
-            --color-principal: #0f4c81; /* Azul Ejecutivo/Corporativo */
-            --color-secundario: #2a9d8f; /* Verde Menta Profesional */
-            --color-acento: #e9c46a; /* Dorado/Amarillo para botones de atención */
-            --color-fondo: #f8f9fa;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporación Lya Global SAC | Uniformes y Confección Textil en Lima</title>
+<meta name="description" content="Confección de uniformes industriales, corporativos y escolares a la medida en Lima, Perú. Cotiza por WhatsApp.">
+<meta name="theme-color" content="#0b2a4a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--navy:#0b2a4a;--navy2:#123a63;--teal:#2a9d8f;--tape:#ff7a1a;--paper:#f6f4ef}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--paper);color:#1d2733}
+h1,h2,h3,.display{font-family:'Archivo',sans-serif}
+/* Cinta reflectiva: motivo de marca */
+.tape{height:10px;background:repeating-linear-gradient(135deg,var(--tape) 0 14px,var(--navy) 14px 28px)}
+:focus-visible{outline:3px solid var(--tape);outline-offset:2px}
+/* Slider */
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;background-color:var(--navy);opacity:0;transform:scale(1.06);transition:opacity 1.1s ease,transform 7s ease-out}
+.slide.on{opacity:1;transform:scale(1)}
+.dot{position:relative;height:4px;flex:1;max-width:72px;background:rgba(255,255,255,.35);border-radius:2px;overflow:hidden}
+.dot i{position:absolute;inset:0;background:var(--tape);transform:scaleX(0);transform-origin:left}
+.dot.done i{transform:scaleX(1)}
+.dot.on i{animation:fill var(--dur,6s) linear forwards}
+.paused .dot.on i{animation-play-state:paused}
+@keyframes fill{to{transform:scaleX(1)}}
+.cap{transition:opacity .5s ease,transform .5s ease}
+.cap.out{opacity:0;transform:translateY(10px)}
+.card img{transition:transform .7s ease}
+.card:hover img{transform:scale(1.06)}
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}.slide,.cap,.card img{transition:none}.dot.on i{animation:none;transform:scaleX(1)}
+}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body>
 
-    <!-- NAV BAR (Cabecera) -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <!-- Espacio para el Logo -->
-                <div class="bg-[#0f4c81] text-white p-2 rounded-lg font-bold text-xl tracking-wider">
-                    CLG
-                </div>
-                <span class="font-bold text-xl text-gray-800 hidden sm:inline">Corporación Lya Global</span>
-            </div>
-            <nav class="hidden md:flex space-x-6 font-medium text-gray-600">
-                <a href="#inicio" class="hover:text-[#2a9d8f] transition">Inicio</a>
-                <a href="#nosotros" class="hover:text-[#2a9d8f] transition">Nosotros</a>
-                <a href="#catalogo" class="hover:text-[#2a9d8f] transition">Catálogo</a>
-                <a href="#contacto" class="hover:text-[#2a9d8f] transition">Contacto</a>
-            </nav>
-            <a href="https://wa.me/51958005201?text=Hola,%20deseo%20una%20cotización%20con%20Corporación%20Lya" target="_blank" class="bg-[#2a9d8f] text-white px-4 py-2 rounded-full font-semibold hover:bg-[#1f756a] transition flex items-center space-x-2 text-sm">
-                <i class="fab fa-whatsapp text-lg"></i>
-                <span>Cotizar Ahora</span>
-            </a>
-        </div>
-    </header>
+<!-- CABECERA -->
+<header class="fixed top-0 inset-x-0 z-50 transition-colors duration-300" id="nav">
+ <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+  <a href="#inicio" class="flex items-center gap-2 text-white">
+   <span class="display bg-[var(--tape)] text-[var(--navy)] font-black px-2 py-1 rounded text-lg tracking-wide">CLG</span>
+   <span class="display font-extrabold hidden sm:inline">Corporación Lya Global</span>
+  </a>
+  <nav class="hidden md:flex gap-7 text-sm font-medium text-white/90" aria-label="Principal">
+   <a href="#inicio" class="hover:text-[var(--tape)]">Inicio</a>
+   <a href="#catalogo" class="hover:text-[var(--tape)]">Catálogo</a>
+   <a href="#trabajos" class="nav-trabajos hover:text-[var(--tape)]">Trabajos</a>
+   <a href="#nosotros" class="hover:text-[var(--tape)]">Nosotros</a>
+   <a href="#contacto" class="hover:text-[var(--tape)]">Contacto</a>
+  </nav>
+  <div class="flex items-center gap-2">
+   <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20una%20cotizaci%C3%B3n%20con%20Corporaci%C3%B3n%20Lya" target="_blank" rel="noopener" class="bg-[var(--tape)] text-[var(--navy)] font-bold text-sm px-4 py-2 rounded-full hover:brightness-110 flex items-center gap-2"><i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>Cotizar</a>
+   <button id="menu-btn" type="button" class="md:hidden text-white text-2xl p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil"><i class="fas fa-bars" aria-hidden="true"></i></button>
+  </div>
+ </div>
+ <nav id="menu-movil" class="hidden md:hidden bg-[var(--navy)] px-4 py-3 text-white font-medium" aria-label="Menú móvil">
+  <a href="#inicio" class="block py-2">Inicio</a><a href="#catalogo" class="block py-2">Catálogo</a><a href="#trabajos" class="nav-trabajos block py-2">Trabajos</a><a href="#nosotros" class="block py-2">Nosotros</a><a href="#contacto" class="block py-2">Contacto</a>
+ </nav>
+</header>
 
-    <!-- HERO SECTION (Inicio) -->
-    <section id="inicio" class="relative bg-gradient-to-r top-0 bg-[#0f4c81] text-white py-20 lg:py-32">
-        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <span class="bg-[#2a9d8f] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Confección Textil Industrial y Corporativa</span>
-                <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight">
-                    Uniformes a la medida con garantía y alta calidad
-                </h1>
-                <p class="text-lg text-blue-100 max-w-lg">
-                    En Corporación Lya Global SAC diseñamos y confeccionamos prendas textiles adaptadas a las necesidades de los sectores minero, público, escolar y de oficinas.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#catalogo" class="bg-white text-[#0f4c81] font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition">
-                        Ver Catálogo de Productos
-                    </a>
-                    <a href="#contacto" class="border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white hover:text-[#0f4c81] transition">
-                        Sectores Atendidos
-                    </a>
-                </div>
-            </div>
-            <!-- Imagen referencial derecha -->
-            <div class="hidden lg:block">
-                <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=800&q=80" alt="Confección de uniformes" class="rounded-2xl shadow-2xl object-cover h-96 w-full border-4 border-white/10">
-            </div>
-        </div>
-    </section>
+<!-- HERO ROTATIVO -->
+<section id="inicio" class="relative h-[100svh] min-h-[600px] text-white overflow-hidden" aria-roledescription="carrusel" aria-label="Sectores atendidos">
+ <div id="slides" aria-hidden="true">
+  <!-- TODO: reemplazar por fotos reales de sus prendas y taller -->
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=75')"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=75')"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1600&q=75')"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=1600&q=75')"></div>
+ </div>
+ <div class="absolute inset-0 bg-gradient-to-r from-[#0b2a4a]/95 via-[#0b2a4a]/70 to-[#0b2a4a]/20"></div>
+ <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a4a]/80 via-transparent to-transparent"></div>
 
-    <!-- BENEFICIOS / PROPUESTA DE VALOR -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition">
-                <div class="bg-blue-100 text-[#0f4c81] p-3 rounded-lg">
-                    <i class="fas fa-shield-alt text-2xl"></i>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-gray-900">Garantía Absoluta</h3>
-                    <p class="text-sm text-gray-600 mt-1">Cada lote entregado pasa por estrictos controles de costura y acabado textil.</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition">
-                <div class="bg-teal-100 text-[#2a9d8f] p-3 rounded-lg">
-                    <i class="fas fa-sliders-h text-2xl"></i>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-gray-900">A la Medida</h3>
-                    <p class="text-sm text-gray-600 mt-1">Personalizamos telas, gramajes, colores y logotipos según el requerimiento exacto.</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition">
-                <div class="bg-orange-100 text-orange-600 p-3 rounded-lg">
-                    <i class="fas fa-truck text-2xl"></i>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-gray-900">Atención Corporativa</h3>
-                    <p class="text-sm text-gray-600 mt-1">Especialistas en licitaciones del sector público y compras masivas privadas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+ <div class="relative z-10 max-w-7xl mx-auto px-4 h-full flex flex-col justify-center pt-16">
+  <h1 class="display font-black text-4xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight max-w-3xl">Uniformes hechos a tu medida.</h1>
+  <p class="mt-5 text-lg sm:text-xl text-white/85 max-w-xl">Confección industrial, corporativa y escolar en Lima. Telas, colores y logotipos según tu requerimiento.</p>
 
-    <!-- CATÁLOGO ORGANIZADO POR SECTORES -->
-    <section id="catalogo" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-gray-950">Nuestro Catálogo Textil</h2>
-                <p class="text-gray-600 mt-2">Soluciones de vestimenta diseñadas específicamente para el entorno operativo de cada sector.</p>
-            </div>
+  <div class="mt-8 flex flex-wrap gap-3">
+   <a href="#contacto" class="bg-[var(--tape)] text-[var(--navy)] font-bold px-7 py-3.5 rounded-lg hover:brightness-110">Pedir cotización</a>
+   <a href="#catalogo" class="border-2 border-white/70 font-bold px-7 py-3.5 rounded-lg hover:bg-white hover:text-[var(--navy)]">Ver catálogo</a>
+  </div>
 
-            <!-- Grilla del catálogo -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Sector Minería / Industrial -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Sector Industrial" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md">Sector Pesante / Minería</span>
-                            <h3 class="font-bold text-xl mt-3 text-gray-900">Línea de Alta Resistencia</h3>
-                            <p class="text-gray-600 text-sm mt-2">Prendas con costuras reforzadas y materiales técnicos certificados.</p>
-                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Overoles Industriales</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Chalecos con cinta reflectiva</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Casacas térmicas e impermeables</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Pantalones de trabajo pesado</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://wa.me/51958005201?text=Hola,%20deseo%20cotizar%20prendas%20de%20la%20línea%20industrial" target="_blank" class="block text-center w-full bg-gray-100 text-[#0f4c81] font-semibold py-2 rounded-xl hover:bg-[#0f4c81] hover:text-white transition">Cotizar Línea Industrial</a>
-                    </div>
-                </div>
+  <!-- Subtítulo de la imagen actual -->
+  <div id="cap" class="cap mt-12 sm:mt-16 max-w-md border-l-4 border-[var(--tape)] pl-4" aria-live="polite">
+   <p id="cap-t" class="display font-extrabold text-xl"></p>
+   <p id="cap-d" class="text-white/80 text-sm mt-1"></p>
+   <a id="cap-l" href="#" target="_blank" rel="noopener" class="inline-block mt-2 text-sm font-bold text-[var(--tape)] hover:underline">Cotizar esta línea</a>
+  </div>
 
-                <!-- Sector Oficinas y Corporativos -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Sector Corporativo" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">Sector Administrativo</span>
-                            <h3 class="font-bold text-xl mt-3 text-gray-900">Línea Ejecutiva y Oficina</h3>
-                            <p class="text-gray-600 text-sm mt-2">Diseño elegante, telas confortables y excelente acabado de imagen corporativa.</p>
-                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Camisas y blusas ejecutivas</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Pantalones de vestir</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Chalecos formales y casacas</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Polos Piqué manga corta/larga</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://wa.me/51958005201?text=Hola,%20deseo%20cotizar%20prendas%20de%20la%20línea%20administrativa" target="_blank" class="block text-center w-full bg-gray-100 text-[#0f4c81] font-semibold py-2 rounded-xl hover:bg-[#0f4c81] hover:text-white transition">Cotizar Línea Administrativa</a>
-                    </div>
-                </div>
+  <div class="mt-6 flex items-center gap-3">
+   <button id="prev" type="button" aria-label="Imagen anterior" class="w-10 h-10 rounded-full border border-white/50 hover:bg-white hover:text-[var(--navy)]"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+   <div id="dots" class="flex gap-2 flex-1 max-w-xs"></div>
+   <button id="next" type="button" aria-label="Imagen siguiente" class="w-10 h-10 rounded-full border border-white/50 hover:bg-white hover:text-[var(--navy)]"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+   <button id="pp" type="button" aria-label="Pausar rotación" class="w-10 h-10 rounded-full border border-white/50 hover:bg-white hover:text-[var(--navy)]"><i class="fas fa-pause" aria-hidden="true"></i></button>
+  </div>
+ </div>
+</section>
+<div class="tape"></div>
 
-                <!-- Sector Escolar e Instituciones Públicas -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="Sector Educativo" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2.5 py-1 rounded-md">Colegios y Entidades</span>
-                            <h3 class="font-bold text-xl mt-3 text-gray-900">Línea Institucional y Escolar</h3>
-                            <p class="text-gray-600 text-sm mt-2">Durabilidad ante el uso diario y resistencia a lavados continuos.</p>
-                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Polos escolares de algodón</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Casacas y buzos de colegios</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Medias, gorras y mandiles</li>
-                                <li><i class="fas fa-check text-[#2a9d8f] mr-2"></i>Mochilas y maletines corporativos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://wa.me/51958005201?text=Hola,%20deseo%20cotizar%20prendas%20de%20la%20línea%20institucional" target="_blank" class="block text-center w-full bg-gray-100 text-[#0f4c81] font-semibold py-2 rounded-xl hover:bg-[#0f4c81] hover:text-white transition">Cotizar Línea Institucional</a>
-                    </div>
-                </div>
+<!-- VENTAJAS -->
+<section class="bg-white">
+ <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
+  <div class="flex gap-4"><i class="fas fa-shield-alt text-3xl text-[var(--navy)]" aria-hidden="true"></i><div><h3 class="font-extrabold text-lg">Control de calidad</h3><p class="text-gray-600 text-sm mt-1">Revisamos costuras y acabados de cada lote antes de entregarlo.</p></div></div>
+  <div class="flex gap-4"><i class="fas fa-sliders-h text-3xl text-[var(--teal)]" aria-hidden="true"></i><div><h3 class="font-extrabold text-lg">Personalizado</h3><p class="text-gray-600 text-sm mt-1">Elige tela, gramaje, color y logotipo bordado o estampado.</p></div></div>
+  <div class="flex gap-4"><i class="fas fa-building text-3xl text-[var(--tape)]" aria-hidden="true"></i><div><h3 class="font-extrabold text-lg">Atención corporativa</h3><p class="text-gray-600 text-sm mt-1">Compras masivas privadas y requerimientos del sector público.</p></div></div>
+ </div>
+</section>
 
-            </div>
-        </div>
-    </section>
+<!-- CATÁLOGO -->
+<section id="catalogo" class="py-20">
+ <div class="max-w-7xl mx-auto px-4">
+  <h2 class="display font-black text-4xl sm:text-5xl tracking-tight max-w-2xl">Una línea para cada trabajo</h2>
+  <p class="text-gray-600 mt-3 max-w-xl">Vestimenta pensada para el entorno de cada sector.</p>
+  <div class="mt-10 grid md:grid-cols-3 gap-6">
 
-    <!-- FORMULARIO DE COTIZACIÓN -->
-    <section id="contacto" class="py-16 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="bg-gray-50 rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-900">Solicita una Cotización Formal</h2>
-                    <p class="text-gray-600 mt-2">Envíanos tus requerimientos técnicos y nos comunicaremos en menos de 24 horas.</p>
-                </div>
-                
-                <form class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre o Razón Social</label>
-                            <input type="text" placeholder="Ej. Empresa SAC" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#0f4c81] bg-white transition">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Correo Electrónico</label>
-                            <input type="email" placeholder="correo@empresa.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#0f4c81] bg-white transition">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Sector Objetivo</label>
-                            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#0f4c81] bg-white transition">
-                                <option>Minería e Industrial</option>
-                                <option>Oficina y Corporativo</option>
-                                <option>Colegios e Instituciones Públicas</option>
-                                <option>Otros / Merchandising</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Cantidad Estimada de Prendas</label>
-                            <input type="number" placeholder="Ej. 100" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#0f4c81] bg-white transition">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Detalle de las prendas y requerimientos de diseño</label>
-                        <textarea rows="4" placeholder="Especificar si requiere polos manga corta, camisas con bordado de logo, casacas térmicas, tallas, etc..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#0f4c81] bg-white transition"></textarea>
-                    </div>
-                    
-                    <button type="button" class="w-full bg-[#0f4c81] text-white font-bold py-4 rounded-xl hover:bg-[#0b3861] shadow-lg transition">
-                        Enviar Requerimiento por Correo
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+   <article class="card bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5 flex flex-col">
+    <div class="relative h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=700&q=75" alt="Trabajador con ropa industrial" loading="lazy" class="w-full h-full object-cover"><div class="tape absolute bottom-0 inset-x-0"></div></div>
+    <div class="p-6 flex-1 flex flex-col">
+     <p class="text-sm font-bold text-[var(--tape)]">Minería e industria</p>
+     <h3 class="display font-extrabold text-2xl mt-1">Alta resistencia</h3>
+     <p class="text-gray-600 text-sm mt-2">Costuras reforzadas para trabajo exigente.</p>
+     <ul class="mt-4 space-y-2 text-sm flex-1">
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Overoles industriales</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Chalecos con cinta reflectiva</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Casacas térmicas e impermeables</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Pantalones de trabajo pesado</li>
+     </ul>
+     <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20cotizar%20prendas%20de%20la%20l%C3%ADnea%20industrial" target="_blank" rel="noopener" class="mt-6 text-center bg-[var(--navy)] text-white font-bold py-3 rounded-lg hover:bg-[var(--navy2)]">Cotizar línea industrial</a>
+    </div>
+   </article>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="space-y-4">
-                <h4 class="text-white font-bold text-lg">Corporación Lya Global SAC</h4>
-                <p class="text-sm">Confecciones textiles de alta calidad y garantía adaptadas a las necesidades del cliente.</p>
-            </div>
-            <div class="space-y-2">
-                <h4 class="text-white font-bold text-md">Enlaces Rápidos</h4>
-                <ul class="space-y-1 text-sm">
-                    <li><a href="#inicio" class="hover:text-white">Inicio</a></li>
-                    <li><a href="#catalogo" class="hover:text-white">Catálogo de Sectores</a></li>
-                    <li><a href="#contacto" class="hover:text-white">Solicitar Cotización</a></li>
-                </ul>
-            </div>
-            <div class="space-y-2">
-                <h4 class="text-white font-bold text-md">Contacto</h4>
-                <p class="text-sm flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> Lima, Perú</p>
-                <p class="text-sm flex items-center"><i class="fas fa-envelope mr-2"></i> creacionestechi@outlook.com</p>
-            </div>
-        </div>
-        <div class="container mx-auto px-4 text-center text-xs mt-8 pt-4 border-t border-gray-800">
-            &copy; 2026 Corporación Lya Global SAC. Todos los derechos reservados.
-        </div>
-    </footer>
+   <article class="card bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5 flex flex-col">
+    <div class="relative h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=75" alt="Ropa ejecutiva de oficina" loading="lazy" class="w-full h-full object-cover"><div class="tape absolute bottom-0 inset-x-0"></div></div>
+    <div class="p-6 flex-1 flex flex-col">
+     <p class="text-sm font-bold text-[var(--tape)]">Administrativo</p>
+     <h3 class="display font-extrabold text-2xl mt-1">Ejecutiva y oficina</h3>
+     <p class="text-gray-600 text-sm mt-2">Telas cómodas y buen acabado para tu imagen corporativa.</p>
+     <ul class="mt-4 space-y-2 text-sm flex-1">
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Camisas y blusas ejecutivas</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Pantalones de vestir</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Chalecos formales y casacas</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Polos piqué manga corta y larga</li>
+     </ul>
+     <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20cotizar%20prendas%20de%20la%20l%C3%ADnea%20administrativa" target="_blank" rel="noopener" class="mt-6 text-center bg-[var(--navy)] text-white font-bold py-3 rounded-lg hover:bg-[var(--navy2)]">Cotizar línea administrativa</a>
+    </div>
+   </article>
 
+   <article class="card bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5 flex flex-col">
+    <div class="relative h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=700&q=75" alt="Uniformes escolares" loading="lazy" class="w-full h-full object-cover"><div class="tape absolute bottom-0 inset-x-0"></div></div>
+    <div class="p-6 flex-1 flex flex-col">
+     <p class="text-sm font-bold text-[var(--tape)]">Colegios y entidades</p>
+     <h3 class="display font-extrabold text-2xl mt-1">Institucional y escolar</h3>
+     <p class="text-gray-600 text-sm mt-2">Resistente al uso diario y a los lavados continuos.</p>
+     <ul class="mt-4 space-y-2 text-sm flex-1">
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Polos escolares de algodón</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Casacas y buzos de colegios</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Medias, gorras y mandiles</li>
+      <li><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i>Mochilas y maletines corporativos</li>
+     </ul>
+     <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20cotizar%20prendas%20de%20la%20l%C3%ADnea%20institucional" target="_blank" rel="noopener" class="mt-6 text-center bg-[var(--navy)] text-white font-bold py-3 rounded-lg hover:bg-[var(--navy2)]">Cotizar línea institucional</a>
+    </div>
+   </article>
+
+  </div>
+ </div>
+</section>
+
+<!-- GALERÍA DE TRABAJOS -->
+<!-- Solo sube fotos propias. Si aparecen personas, ten su autorización; si se ve el logo de un cliente, ten su permiso. -->
+<section id="trabajos" class="py-20 bg-white">
+ <div class="max-w-7xl mx-auto px-4">
+  <h2 class="display font-black text-4xl sm:text-5xl tracking-tight">Nuestros trabajos</h2>
+  <p class="text-gray-600 mt-3 max-w-xl">Prendas confeccionadas por nosotros. Toca una foto para verla en grande.</p>
+  <div id="g-filtros" class="mt-6 flex flex-wrap gap-2"></div>
+  <div id="g-grid" class="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+ </div>
+</section>
+<dialog id="lb" class="m-auto bg-transparent p-0 max-w-[95vw] backdrop:bg-black/80" aria-label="Foto ampliada">
+ <div class="relative">
+  <img id="lb-img" alt="" class="max-h-[80vh] max-w-[95vw] rounded-lg">
+  <p id="lb-cap" class="text-white text-center mt-2 font-bold"></p>
+  <button id="lb-close" type="button" aria-label="Cerrar" class="absolute top-2 right-2 w-10 h-10 rounded-full bg-black/60 text-white"><i class="fas fa-times" aria-hidden="true"></i></button>
+  <button id="lb-prev" type="button" aria-label="Foto anterior" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+  <button id="lb-next" type="button" aria-label="Foto siguiente" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+ </div>
+</dialog>
+
+<!-- NOSOTROS Y PROCESO -->
+<section id="nosotros" class="bg-[var(--navy)] text-white py-20">
+ <div class="max-w-7xl mx-auto px-4">
+  <div class="grid lg:grid-cols-2 gap-10 items-start">
+   <div>
+    <h2 class="display font-black text-4xl sm:text-5xl tracking-tight">Confeccionamos en Lima, entregamos a todo el país</h2>
+    <!-- TODO: completar con años de experiencia, capacidad de producción, clientes, RNP/certificaciones y confirmar envíos a provincia -->
+    <p class="text-white/80 mt-4 max-w-lg">Corporación Lya Global SAC produce uniformes para empresas, instituciones educativas y entidades públicas, con acabados pensados para el uso diario.</p>
+   </div>
+   <ol class="grid sm:grid-cols-2 gap-4">
+    <li class="rounded-xl bg-white/5 border border-white/10 p-5"><span class="display font-black text-[var(--tape)] text-2xl">1</span><h3 class="font-bold mt-1">Requerimiento</h3><p class="text-sm text-white/70 mt-1">Nos cuentas prendas, cantidades, tallas y diseño.</p></li>
+    <li class="rounded-xl bg-white/5 border border-white/10 p-5"><span class="display font-black text-[var(--tape)] text-2xl">2</span><h3 class="font-bold mt-1">Cotización</h3><p class="text-sm text-white/70 mt-1">Te enviamos precio y plazo de entrega.</p></li>
+    <li class="rounded-xl bg-white/5 border border-white/10 p-5"><span class="display font-black text-[var(--tape)] text-2xl">3</span><h3 class="font-bold mt-1">Confección</h3><p class="text-sm text-white/70 mt-1">Producimos con control de costura y acabado.</p></li>
+    <li class="rounded-xl bg-white/5 border border-white/10 p-5"><span class="display font-black text-[var(--tape)] text-2xl">4</span><h3 class="font-bold mt-1">Entrega</h3><p class="text-sm text-white/70 mt-1">Recibes tu lote revisado y listo para usar.</p></li>
+   </ol>
+  </div>
+ </div>
+</section>
+<div class="tape"></div>
+
+<!-- FORMULARIO -->
+<section id="contacto" class="py-20">
+ <div class="max-w-3xl mx-auto px-4">
+  <h2 class="display font-black text-4xl sm:text-5xl tracking-tight">Pide tu cotización</h2>
+  <p class="text-gray-600 mt-3">Completa el formulario y se abrirá WhatsApp con tu pedido listo para enviar. Respondemos en menos de 24 horas.</p>
+  <form id="form-cotizacion" class="mt-8 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-black/5 space-y-5">
+   <div class="grid md:grid-cols-2 gap-5">
+    <div><label for="nombre" class="block text-sm font-bold mb-1.5">Nombre o razón social</label><input id="nombre" name="nombre" type="text" required autocomplete="organization" placeholder="Ej. Empresa SAC" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--navy)]"></div>
+    <div><label for="telefono" class="block text-sm font-bold mb-1.5">Teléfono o WhatsApp</label><input id="telefono" name="telefono" type="tel" required autocomplete="tel" placeholder="Ej. 958 005 201" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--navy)]"></div>
+   </div>
+   <div class="grid md:grid-cols-3 gap-5">
+    <div><label for="correo" class="block text-sm font-bold mb-1.5">Correo (opcional)</label><input id="correo" name="correo" type="email" autocomplete="email" placeholder="correo@empresa.com" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--navy)]"></div>
+    <div><label for="sector" class="block text-sm font-bold mb-1.5">Sector</label><select id="sector" name="sector" class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:border-[var(--navy)]"><option>Minería e industrial</option><option>Oficina y corporativo</option><option>Colegios e instituciones públicas</option><option>Otros / Merchandising</option></select></div>
+    <div><label for="cantidad" class="block text-sm font-bold mb-1.5">Cantidad de prendas</label><input id="cantidad" name="cantidad" type="number" min="1" placeholder="Ej. 100" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--navy)]"></div>
+   </div>
+   <div><label for="detalle" class="block text-sm font-bold mb-1.5">Detalle de prendas y diseño</label><textarea id="detalle" name="detalle" rows="4" placeholder="Ej. polos manga corta, camisas con logo bordado, casacas térmicas, tallas..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--navy)]"></textarea></div>
+   <div>
+    <label for="foto" class="block text-sm font-bold mb-1.5">Foto de referencia (opcional)</label>
+    <p class="text-xs text-gray-600 mb-2">Sube una foto de la prenda (sobre una mesa, colgada o puesta). No se aceptan imágenes con contenido explícito. JPG, PNG o WEBP, hasta 8 MB.</p>
+    <input id="foto" type="file" accept="image/jpeg,image/png,image/webp" class="block w-full text-sm file:mr-3 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:bg-[var(--navy)] file:text-white file:font-bold hover:file:bg-[var(--navy2)]">
+    <div id="foto-prev" class="hidden mt-3 flex items-center gap-3">
+     <img id="foto-img" alt="Vista previa de la foto de referencia" class="w-24 h-24 object-cover rounded-lg border border-gray-300">
+     <button type="button" id="foto-quitar" class="text-sm font-bold text-red-700 underline">Quitar foto</button>
+    </div>
+    <p id="foto-msg" role="status" aria-live="polite" class="text-sm mt-2 text-gray-600"></p>
+   </div>
+   <div class="flex items-start gap-3">
+    <input id="acepto" name="acepto" type="checkbox" required class="mt-1 w-5 h-5 accent-[var(--navy)]">
+    <label for="acepto" class="text-sm text-gray-700">Autorizo el uso de mis datos personales para atender esta cotización, según la <a href="#privacidad" data-priv class="underline font-bold text-[var(--navy)]">Política de Privacidad</a>.</label>
+   </div>
+   <button type="submit" class="w-full bg-[var(--tape)] text-[var(--navy)] font-black py-4 rounded-lg hover:brightness-110 flex items-center justify-center gap-2"><i class="fab fa-whatsapp text-xl" aria-hidden="true"></i>Enviar pedido por WhatsApp</button>
+  </form>
+ </div>
+</section>
+
+<!-- PIE -->
+<footer class="bg-[#071c33] text-gray-300 py-12">
+ <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+  <div><h4 class="display text-white font-extrabold text-lg">Corporación Lya Global SAC</h4><p class="mt-2">Confecciones textiles de calidad adaptadas a las necesidades del cliente.</p><!-- TODO: agregar RUC --></div>
+  <div><h4 class="text-white font-bold mb-2">Enlaces</h4><ul class="space-y-1"><li><a href="#inicio" class="hover:text-white">Inicio</a></li><li><a href="#catalogo" class="hover:text-white">Catálogo</a></li><li><a href="#nosotros" class="hover:text-white">Nosotros</a></li><li><a href="#contacto" class="hover:text-white">Cotización</a></li><li><a href="#privacidad" data-priv class="hover:text-white">Política de privacidad</a></li><li id="li-libro" hidden><a id="libro" href="#" target="_blank" rel="noopener" class="hover:text-white"><i class="fas fa-book-open mr-1" aria-hidden="true"></i>Libro de Reclamaciones</a></li></ul></div>
+  <div><h4 class="text-white font-bold mb-2">Contacto</h4><p><i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>Lima, Perú</p><p class="mt-1"><a href="https://wa.me/51958005201" target="_blank" rel="noopener" class="hover:text-white"><i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>958 005 201</a></p><!-- TODO: correo con dominio propio --><p class="mt-1"><a href="mailto:creacionestechi@outlook.com" class="hover:text-white"><i class="fas fa-envelope mr-2" aria-hidden="true"></i>creacionestechi@outlook.com</a></p></div>
+ </div>
+ <p class="max-w-7xl mx-auto px-4 mt-8 pt-4 border-t border-white/10 text-xs text-center">&copy; 2026 Corporación Lya Global SAC. Todos los derechos reservados.</p>
+</footer>
+
+<a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20una%20cotizaci%C3%B3n%20con%20Corporaci%C3%B3n%20Lya" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" class="fixed bottom-5 right-5 z-50 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-3xl hover:scale-105 transition"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+
+<!-- POLÍTICA DE PRIVACIDAD: plantilla. Completa los [COMPLETAR] y haz que la revise un abogado antes de publicar -->
+<dialog id="privacidad" class="m-auto rounded-2xl p-0 w-[92vw] max-w-2xl backdrop:bg-black/60">
+ <div class="p-6 sm:p-8 max-h-[85vh] overflow-y-auto text-sm text-gray-700 space-y-3">
+  <h2 class="display font-black text-2xl text-gray-900">Política de Privacidad</h2>
+  <p><b>Titular del banco de datos:</b> Corporación Lya Global SAC, RUC [COMPLETAR], domicilio [COMPLETAR], Lima, Perú.</p>
+  <p><b>Datos que recogemos:</b> nombre o razón social, teléfono, correo (opcional), sector, cantidad y detalle de tu pedido, y la foto de referencia (opcional) que decidas enviar.</p>
+  <p><b>Para qué los usamos:</b> atender tu solicitud de cotización y comunicarnos contigo sobre ella. No usamos tus datos para publicidad ni los vendemos.</p>
+  <p><b>Cómo se envían:</b> el formulario abre WhatsApp con tu mensaje, por lo que el envío también se rige por los términos de WhatsApp. Esta página no guarda tus datos en un servidor propio. El servicio de alojamiento puede registrar datos técnicos, como la dirección IP.</p>
+  <p><b>Tiempo de conservación:</b> [COMPLETAR].</p>
+  <p><b>Tus derechos:</b> puedes pedir acceso, rectificación, cancelación u oposición sobre tus datos, y los demás derechos que reconoce la Ley N.° 29733 y su Reglamento, escribiendo a [COMPLETAR correo]. También puedes presentar un reclamo ante la Autoridad Nacional de Protección de Datos Personales.</p>
+  <button type="button" id="priv-close" class="mt-2 bg-[var(--navy)] text-white font-bold px-5 py-2.5 rounded-lg">Cerrar</button>
+ </div>
+</dialog>
+
+<script>
+// Barra: transparente sobre el hero, azul al bajar
+const nav=document.getElementById('nav');
+const setNav=()=>nav.classList.toggle('bg-[#0b2a4a]',scrollY>40);
+setNav();addEventListener('scroll',setNav,{passive:true});
+
+// Menú móvil
+const mb=document.getElementById('menu-btn'),mm=document.getElementById('menu-movil');
+mb.addEventListener('click',()=>{const o=mm.classList.toggle('hidden')===false;mb.setAttribute('aria-expanded',o);nav.classList.add('bg-[#0b2a4a]')});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.add('hidden');mb.setAttribute('aria-expanded','false')}));
+
+// Hero rotativo
+const DATA=[
+ {t:'Minería e industria',d:'Overoles, chalecos reflectivos y casacas de alta resistencia.',m:'línea industrial'},
+ {t:'Oficina y corporativo',d:'Camisas, blusas y pantalones con tu imagen de marca.',m:'línea administrativa'},
+ {t:'Colegios e instituciones',d:'Polos, buzos y casacas que resisten el uso diario.',m:'línea institucional'},
+ {t:'A la medida',d:'Elige telas, colores y logotipos para tu requerimiento.',m:'confección a la medida'}
+];
+const DUR=6000,slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('dots'),cap=document.getElementById('cap');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let cur=0,timer=null,playing=!reduce;
+DATA.forEach((_,i)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Ir a imagen '+(i+1));b.innerHTML='<i></i>';b.style.setProperty('--dur',DUR+'ms');b.onclick=()=>go(i,true);dots.appendChild(b)});
+function show(i){
+ cur=(i+DATA.length)%DATA.length;
+ slides.forEach((s,k)=>s.classList.toggle('on',k===cur));
+ [...dots.children].forEach((d,k)=>{d.classList.remove('on','done');if(k<cur)d.classList.add('done');if(k===cur){void d.offsetWidth;d.classList.add('on')}});
+ cap.classList.add('out');
+ setTimeout(()=>{const x=DATA[cur];document.getElementById('cap-t').textContent=x.t;document.getElementById('cap-d').textContent=x.d;
+  document.getElementById('cap-l').href='https://wa.me/51958005201?text='+encodeURIComponent('Hola, deseo cotizar '+x.m);cap.classList.remove('out')},reduce?0:300);
+}
+function schedule(){clearTimeout(timer);if(playing)timer=setTimeout(()=>go(cur+1),DUR)}
+function go(i,manual){show(i);schedule()}
+const hero=document.getElementById('inicio');
+document.getElementById('prev').onclick=()=>go(cur-1);
+document.getElementById('next').onclick=()=>go(cur+1);
+const pp=document.getElementById('pp');
+pp.onclick=()=>{playing=!playing;hero.classList.toggle('paused',!playing);pp.setAttribute('aria-label',playing?'Pausar rotación':'Reanudar rotación');pp.innerHTML='<i class="fas fa-'+(playing?'pause':'play')+'" aria-hidden="true"></i>';show(cur);schedule()};
+// Deslizar en celular
+let sx=null;hero.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+hero.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)go(cur+(dx<0?1:-1));sx=null});
+if(reduce){pp.innerHTML='<i class="fas fa-play" aria-hidden="true"></i>';pp.setAttribute('aria-label','Reanudar rotación');hero.classList.add('paused')}
+show(0);schedule();
+
+// Foto de referencia: valida que sea una prenda (sin personas)
+const foto=document.getElementById('foto'),fprev=document.getElementById('foto-prev'),fimg=document.getElementById('foto-img'),fmsg=document.getElementById('foto-msg');
+let fotoCanvas=null,fotoOK=false,detP=null;
+const msg=(t,ok)=>{fmsg.textContent=t;fmsg.className='text-sm mt-2 '+(ok===true?'text-green-700':ok===false?'text-red-700':'text-gray-600')};
+const cargar=src=>new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s)});
+const UMBRAL_EXPLICITO=0.35,UMBRAL_SEXY=0.8; // súbelos para ser más permisivo, bájalos para ser más estricto
+const NSFW='https://cdn.jsdelivr.net/npm/nsfwjs@4.3.0/dist/';
+function detector(){
+ if(!detP)detP=(async()=>{
+  await cargar('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0');
+  await cargar(NSFW+'models/mobilenet_v2/model.min.js');
+  await cargar(NSFW+'models/mobilenet_v2/group1-shard1of1.min.js');
+  await cargar(NSFW+'browser/nsfwjs.min.js');
+  return nsfwjs.load();
+ })().catch(e=>{detP=null;throw e});
+ return detP;
+}
+function limpiarFoto(){fotoCanvas=null;fotoOK=false;foto.value='';fprev.classList.add('hidden');if(fimg.src.startsWith('blob:'))URL.revokeObjectURL(fimg.src);fimg.removeAttribute('src');msg('')}
+document.getElementById('foto-quitar').onclick=limpiarFoto;
+foto.addEventListener('change',async()=>{
+ const f=foto.files[0];
+ if(!f){limpiarFoto();return}
+ if(!/^image\/(jpeg|png|webp)$/.test(f.type)){limpiarFoto();msg('Formato no válido. Usa JPG, PNG o WEBP.',false);return}
+ if(f.size>8*1024*1024){limpiarFoto();msg('La foto pesa más de 8 MB.',false);return}
+ msg('Revisando la foto…');
+ try{
+  const bmp=await createImageBitmap(f),k=Math.min(1,1280/Math.max(bmp.width,bmp.height));
+  const c=document.createElement('canvas');c.width=Math.round(bmp.width*k);c.height=Math.round(bmp.height*k);
+  c.getContext('2d').drawImage(bmp,0,0,c.width,c.height); // reduce tamaño y elimina datos EXIF/ubicación
+  try{
+   const m=await detector();
+   const pr=Object.fromEntries((await m.classify(c)).map(x=>[x.className,x.probability]));
+   if((pr.Porn||0)+(pr.Hentai||0)>=UMBRAL_EXPLICITO||(pr.Sexy||0)>=UMBRAL_SEXY){limpiarFoto();msg('Esta imagen no cumple las normas: no aceptamos contenido explícito. Sube una foto de la prenda.',false);return}
+  }catch(err){limpiarFoto();msg('No pudimos verificar la foto. Inténtalo de nuevo o envía tu pedido sin foto.',false);return}
+  fotoCanvas=c;fotoOK=true;
+  fimg.src=URL.createObjectURL(await new Promise(r=>c.toBlob(r,'image/jpeg',0.85)));
+  fprev.classList.remove('hidden');
+  msg('Foto lista.',true);
+ }catch(err){limpiarFoto();msg('No se pudo leer la imagen. Prueba con otra foto.',false)}
+});
+
+// Formulario -> WhatsApp
+document.getElementById('form-cotizacion').addEventListener('submit',async e=>{
+ e.preventDefault();const f=e.target,v=n=>f.elements[n].value.trim();
+ const L=['Hola, deseo una cotización formal con Corporación Lya Global.','Nombre/Razón social: '+v('nombre'),'Teléfono: '+v('telefono'),v('correo')?'Correo: '+v('correo'):'','Sector: '+v('sector'),v('cantidad')?'Cantidad estimada: '+v('cantidad')+' prendas':'',v('detalle')?'Detalle: '+v('detalle'):'',fotoOK?'Te enviaré una foto de referencia de la prenda.':''].filter(Boolean);
+ const url='https://wa.me/51958005201?text='+encodeURIComponent(L.join('\n'));
+ const w=window.open('','_blank');
+ if(fotoOK&&fotoCanvas&&navigator.clipboard&&window.ClipboardItem){
+  try{
+   const png=await new Promise(r=>fotoCanvas.toBlob(r,'image/png'));
+   await navigator.clipboard.write([new ClipboardItem({'image/png':png})]);
+   msg('Foto copiada: en el chat de WhatsApp pégala con Ctrl+V (⌘+V en Mac).',true);
+  }catch(err){msg('En WhatsApp, adjunta tu foto con el ícono del clip.',true)}
+ }else if(fotoOK){msg('En WhatsApp, adjunta tu foto con el ícono del clip.',true)}
+ if(w){w.opener=null;w.location=url}else{location.href=url}
+});
+
+// Galería: copia tus fotos a la carpeta fotos/ y agrégalas aquí
+// sector: mineria | oficina | colegios | otros
+const FOTOS=[
+ // {src:'fotos/overol-minero-01.jpg',sector:'mineria',titulo:'Overol industrial con cinta reflectiva'},
+ // {src:'fotos/camisa-ejecutiva-01.jpg',sector:'oficina',titulo:'Camisa ejecutiva con logo bordado'},
+];
+const SECT={mineria:'Minería e industria',oficina:'Oficina y corporativo',colegios:'Colegios e instituciones',otros:'Otros'};
+const LIBRO_URL=''; // pega aquí el enlace de tu Libro de Reclamaciones virtual
+(function(){
+ const sec=document.getElementById('trabajos');
+ if(!FOTOS.length){sec.hidden=true;document.querySelectorAll('.nav-trabajos').forEach(a=>a.hidden=true);return}
+ const grid=document.getElementById('g-grid'),fil=document.getElementById('g-filtros'),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-cap');
+ let vis=[],idx=0;
+ const mostrar=()=>{const x=vis[idx];lbi.src=x.src;lbi.alt=x.titulo||'Prenda confeccionada';lbc.textContent=x.titulo||''};
+ const abrir=i=>{idx=i;mostrar();lb.showModal()};
+ const mover=d=>{idx=(idx+d+vis.length)%vis.length;mostrar()};
+ function pintar(k){
+  vis=FOTOS.filter(x=>k==='todos'||x.sector===k);grid.innerHTML='';
+  vis.forEach((x,i)=>{
+   const b=document.createElement('button');b.type='button';
+   b.className='card block overflow-hidden rounded-xl bg-white shadow-sm border border-black/5 text-left';
+   b.innerHTML='<div class="overflow-hidden aspect-[4/3]"><img loading="lazy" class="w-full h-full object-cover"></div><p class="p-3 text-sm font-bold"></p>';
+   const im=b.querySelector('img');im.src=x.src;im.alt=x.titulo||'Prenda confeccionada';
+   b.querySelector('p').textContent=x.titulo||'';b.onclick=()=>abrir(i);grid.appendChild(b);
+  });
+  [...fil.children].forEach(c=>{const on=c.dataset.k===k;c.setAttribute('aria-pressed',on);c.className='px-4 py-2 rounded-full text-sm font-bold border '+(on?'bg-[var(--navy)] text-white border-[var(--navy)]':'bg-white text-gray-700 border-gray-300')});
+ }
+ ['todos',...new Set(FOTOS.map(x=>x.sector))].forEach(k=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.textContent=k==='todos'?'Todos':(SECT[k]||k);b.onclick=()=>pintar(k);fil.appendChild(b)});
+ pintar('todos');
+ document.getElementById('lb-close').onclick=()=>lb.close();
+ document.getElementById('lb-prev').onclick=()=>mover(-1);
+ document.getElementById('lb-next').onclick=()=>mover(1);
+ lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+ lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')mover(-1);if(e.key==='ArrowRight')mover(1)});
+})();
+
+// Política de privacidad
+const priv=document.getElementById('privacidad');
+document.querySelectorAll('[data-priv]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();priv.showModal()}));
+document.getElementById('priv-close').onclick=()=>priv.close();
+priv.addEventListener('click',e=>{if(e.target===priv)priv.close()});
+
+// Libro de Reclamaciones (se muestra cuando pegues tu enlace en LIBRO_URL)
+if(LIBRO_URL){document.getElementById('libro').href=LIBRO_URL;document.getElementById('li-libro').hidden=false}
+</script>
 </body>
 </html>
