@@ -77,13 +77,14 @@ h1,h2,h3,.display{font-family:'Archivo',sans-serif}
  <div class="absolute inset-0 bg-gradient-to-t from-[#0b2a4a]/80 via-transparent to-transparent"></div>
 
  <div class="relative z-10 max-w-7xl mx-auto px-4 h-full flex flex-col justify-center pt-16">
-  <h1 class="display font-black text-4xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight max-w-3xl">Uniformes hechos a tu medida.</h1>
-  <p class="mt-5 text-lg sm:text-xl text-white/85 max-w-xl">Confección industrial, corporativa y escolar en Lima. Telas, colores y logotipos según tu requerimiento.</p>
+  <h1 class="display font-black text-4xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight max-w-3xl">Uniformes hechos según tu modelo.</h1>
+  <p class="mt-5 text-lg sm:text-xl text-white/85 max-w-xl">Confeccionamos prendas industriales, corporativas y escolares en Lima, de acuerdo a tu diseño: tela, colores, logotipo y tallas. Envíanos una foto o PDF de tu modelo y te cotizamos.</p>
 
   <div class="mt-8 flex flex-wrap gap-3">
-   <a href="#contacto" class="bg-[var(--tape)] text-[var(--navy)] font-bold px-7 py-3.5 rounded-lg hover:brightness-110">Pedir cotización</a>
-   <a href="#catalogo" class="border-2 border-white/70 font-bold px-7 py-3.5 rounded-lg hover:bg-white hover:text-[var(--navy)]">Ver catálogo</a>
+   <a href="#contacto" class="bg-[var(--tape)] text-[var(--navy)] font-bold px-7 py-3.5 rounded-lg hover:brightness-110">Cotiza con tu modelo</a>
+   <a href="#catalogo" class="border-2 border-white/70 font-bold px-7 py-3.5 rounded-lg hover:bg-white hover:text-[var(--navy)]">¿Sin modelo? Ver catálogo</a>
   </div>
+  <p class="mt-3 text-sm text-white/70">Respondemos en menos de 24 horas.</p>
 
   <!-- Subtítulo de la imagen actual -->
   <div id="cap" class="cap mt-12 sm:mt-16 max-w-md border-l-4 border-[var(--tape)] pl-4" aria-live="polite">
@@ -256,6 +257,31 @@ h1,h2,h3,.display{font-family:'Archivo',sans-serif}
 </footer>
 
 <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20una%20cotizaci%C3%B3n%20con%20Corporaci%C3%B3n%20Lya" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" class="fixed bottom-5 right-5 z-50 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-3xl hover:scale-105 transition"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+
+<!-- IMAGEN REFERENCIAL DE PRENDA -->
+<dialog id="prod" class="m-auto rounded-2xl p-0 w-[92vw] max-w-xl backdrop:bg-black/70 max-h-[92vh] overflow-y-auto" aria-label="Imagen de la prenda">
+ <div class="relative bg-white">
+  <img id="prod-img" alt="" class="w-full max-h-[45vh] object-contain bg-gray-100">
+  <p id="prod-err" hidden class="p-10 text-center text-gray-500 bg-gray-100"><i class="fas fa-shirt text-4xl block mb-3 text-gray-400" aria-hidden="true"></i>Imagen referencial próximamente. Escríbenos y te mostramos opciones por WhatsApp.</p>
+  <button id="prod-close" type="button" aria-label="Cerrar" class="absolute top-2 right-2 w-10 h-10 rounded-full bg-black/60 text-white"><i class="fas fa-times" aria-hidden="true"></i></button>
+  <button id="prod-prev" type="button" hidden aria-label="Imagen anterior" class="absolute left-2 top-28 w-10 h-10 rounded-full bg-black/60 text-white"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+  <button id="prod-next" type="button" hidden aria-label="Imagen siguiente" class="absolute right-2 top-28 w-10 h-10 rounded-full bg-black/60 text-white"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+  <div class="p-5">
+   <p class="text-xs font-bold uppercase tracking-wider text-[var(--tape)]">Imagen referencial</p>
+   <h3 id="prod-t" class="display font-extrabold text-xl mt-1"></h3>
+   <p id="prod-d" class="text-sm text-gray-700 mt-2"></p>
+   <p id="prod-i" hidden class="text-sm text-gray-700 mt-2"><b>Ideal para:</b> <span></span></p>
+   <div class="mt-3">
+    <p class="text-xs font-bold uppercase tracking-wider text-gray-500">Puedes definir</p>
+    <ul id="prod-ops" class="mt-1.5 flex flex-wrap gap-2 text-xs font-medium"></ul>
+   </div>
+   <p id="prod-n" hidden class="text-xs text-gray-600 mt-3"></p>
+   <p class="text-xs text-gray-600 mt-3"><b>Para cotizar, cuéntanos:</b> cantidad aproximada, tallas, colores y logotipo. Puedes enviar una foto o PDF de tu modelo.</p>
+   <p class="text-xs text-gray-500 mt-1">El diseño final se define según tu requerimiento.</p>
+   <a id="prod-wa" href="#" target="_blank" rel="noopener" class="mt-4 block text-center bg-[var(--navy)] text-white font-bold py-3 rounded-lg hover:bg-[var(--navy2)]">Cotizar esta prenda</a>
+  </div>
+ </div>
+</dialog>
 
 <!-- POLÍTICA DE PRIVACIDAD: plantilla. Conviene que la revise un abogado. Si cambias el plazo de 12 meses, cúmplelo en la práctica -->
 <dialog id="privacidad" class="m-auto rounded-2xl p-0 w-[92vw] max-w-2xl backdrop:bg-black/60">
@@ -445,6 +471,71 @@ priv.addEventListener('click',e=>{if(e.target===priv)priv.close()});
 
 // Libro de Reclamaciones (se muestra cuando pegues tu enlace en LIBRO_URL)
 if(LIBRO_URL){document.getElementById('libro').href=LIBRO_URL;document.getElementById('li-libro').hidden=false}
+
+// Catálogo: toca una prenda para ver una imagen referencial.
+// Copia la imagen a la carpeta Prendas/ (JPG o WEBP liviano) y descomenta/edita la línea de esa prenda.
+// Puedes poner varias imágenes por prenda: [{src:'Prendas/a.jpg'},{src:'Prendas/b.jpg'}]
+const PRODUCTOS={
+ 'Chalecos con cinta reflectiva':[{src:'Prendas/magnific_chalecos-industriales-flu_dIRWdVYXSL.png'}],
+ // 'Overoles industriales':[{src:'Prendas/overol-industrial.jpg'}],
+ // 'Casacas térmicas e impermeables':[{src:'Prendas/casaca-termica.jpg'}],
+ // 'Pantalones de trabajo pesado':[{src:'Prendas/pantalon-trabajo.jpg'}],
+ // 'Camisas y blusas ejecutivas':[{src:'Prendas/camisa-ejecutiva.jpg'}],
+ // 'Pantalones de vestir':[{src:'Prendas/pantalon-vestir.jpg'}],
+ // 'Chalecos formales y casacas':[{src:'Prendas/chaleco-formal.jpg'}],
+ // 'Polos piqué manga corta y larga':[{src:'Prendas/polo-pique.jpg'}],
+ // 'Polos escolares de algodón':[{src:'Prendas/polo-escolar.jpg'}],
+ // 'Casacas y buzos de colegios':[{src:'Prendas/buzo-colegio.jpg'}],
+ // 'Medias, gorras y mandiles':[{src:'Prendas/gorra-mandil.jpg'}],
+ // 'Mochilas y maletines corporativos':[{src:'Prendas/mochila.jpg'}],
+};
+// Detalle que se muestra al abrir cada prenda. Edita los textos con las características reales de tus productos.
+const DETALLES={
+ 'Overoles industriales':{desc:'Prenda de una pieza que cubre torso y piernas, pensada para trabajos de campo, taller, planta o mantenimiento.',ideal:'Minería, mantenimiento, plantas, talleres y obras.',ops:['Tela y gramaje','Color','Cierre frontal','Bolsillos','Cinta reflectiva','Puños y tobillos ajustables','Logotipo bordado o estampado','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Chalecos con cinta reflectiva':{desc:'Chaleco que hace más visible a la persona en zonas de tránsito y trabajo. Puede llevar cinta reflectiva, bolsillos y cierre según tu modelo.',ideal:'Obras, minería, almacenes, tránsito y seguridad.',ops:['Color (naranja, amarillo u otro)','Cinta reflectiva: cantidad y ubicación','Cierre de cremallera o velcro','Bolsillos','Logotipo bordado o estampado','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Casacas térmicas e impermeables':{desc:'Casaca para clima frío o lluvia, pensada para jornadas al aire libre.',ideal:'Trabajo en campo, zonas altas, vigilancia y operaciones al aire libre.',ops:['Tipo de tela','Forro térmico','Capucha','Bolsillos','Cinta reflectiva','Color','Logotipo bordado o estampado','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Pantalones de trabajo pesado':{desc:'Pantalón con costuras reforzadas para un uso diario exigente.',ideal:'Minería, construcción, mantenimiento y talleres.',ops:['Tela y gramaje','Color','Bolsillos laterales o tipo cargo','Cinta reflectiva','Refuerzos','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Camisas y blusas ejecutivas':{desc:'Camisas y blusas para equipos de oficina y atención al público, con la imagen de tu marca.',ideal:'Oficinas, bancos, recepción y atención al cliente.',ops:['Manga corta o larga','Color','Tela','Corte para hombre o mujer','Logotipo bordado','Tallas']},
+ 'Pantalones de vestir':{desc:'Pantalones de corte formal para uniformes administrativos.',ideal:'Oficinas y atención al público.',ops:['Tela','Color','Corte para hombre o mujer','Bolsillos','Tallas']},
+ 'Chalecos formales y casacas':{desc:'Chalecos y casacas para completar el uniforme corporativo.',ideal:'Oficinas, atención al público y uniformes corporativos.',ops:['Tela','Color','Cierre o botones','Logotipo bordado','Tallas']},
+ 'Polos piqué manga corta y larga':{desc:'Polos de tela piqué, en manga corta o larga, con logo bordado o estampado.',ideal:'Personal administrativo y operativo, eventos y uniformes de empresa.',ops:['Manga corta o larga','Color y combinación de colores','Cuello y puños','Logotipo bordado o estampado','Tallas']},
+ 'Polos escolares de algodón':{desc:'Polos de algodón para el uso diario en colegios, pensados para lavados continuos.',ideal:'Colegios e instituciones educativas.',ops:['Colores del colegio','Escudo bordado o estampado','Manga corta o larga','Tallas por edad']},
+ 'Casacas y buzos de colegios':{desc:'Casacas y buzos con los colores y el escudo de la institución.',ideal:'Colegios, academias y clubes.',ops:['Colores y diseño de la institución','Escudo o logotipo','Cierre y bolsillos','Tallas por edad']},
+ 'Medias, gorras y mandiles':{desc:'Complementos del uniforme escolar o institucional.',ideal:'Colegios e instituciones.',ops:['Colores','Escudo o logotipo','Tallas o medidas','Cantidad']},
+ 'Mochilas y maletines corporativos':{desc:'Mochilas y maletines con el logo de tu empresa o institución.',ideal:'Empresas, colegios e instituciones.',ops:['Color','Logotipo bordado o estampado','Tamaño','Bolsillos y compartimentos','Cantidad']},
+};
+(function(){
+ const d=document.getElementById('prod'),im=document.getElementById('prod-img'),er=document.getElementById('prod-err'),
+  pt=document.getElementById('prod-t'),pw=document.getElementById('prod-wa'),pp=document.getElementById('prod-prev'),pn=document.getElementById('prod-next');
+ let lista=[],i=0,nombre='';
+ function ver(){
+  if(!lista.length){im.hidden=true;er.hidden=false;return}
+  er.hidden=true;im.hidden=false;im.alt='Imagen referencial: '+nombre;
+  im.onerror=()=>{im.hidden=true;er.hidden=false};
+  im.src=lista[i].src;
+ }
+ function abrir(n,l){
+  nombre=n;lista=l;i=0;pt.textContent=n;
+  {const x=DETALLES[n]||{},dd=document.getElementById('prod-d'),dn=document.getElementById('prod-n'),di=document.getElementById('prod-i'),ul=document.getElementById('prod-ops');
+   dd.textContent=x.desc||'';dd.hidden=!x.desc;dn.textContent=x.nota||'';dn.hidden=!x.nota;
+   di.hidden=!x.ideal;di.querySelector('span').textContent=x.ideal||'';
+   ul.innerHTML='';(x.ops||['Tela y gramaje','Colores','Tallas','Logotipo bordado o estampado']).forEach(t=>{const li=document.createElement('li');li.className='bg-gray-100 rounded-full px-3 py-1';li.textContent=t;ul.appendChild(li)})}
+  pw.href='https://wa.me/51958005201?text='+encodeURIComponent('Hola, deseo cotizar: '+n);
+  pp.hidden=pn.hidden=l.length<2;ver();d.showModal();
+ }
+ const mover=k=>{i=(i+k+lista.length)%lista.length;ver()};
+ document.querySelectorAll('#catalogo ul li').forEach(li=>{
+  const n=li.textContent.trim(),l=PRODUCTOS[n]||[];
+  li.innerHTML='<button type="button" class="flex items-center w-full text-left underline decoration-dotted underline-offset-4 hover:text-[var(--navy)]"><i class="fas fa-check text-[var(--teal)] mr-2" aria-hidden="true"></i><span></span><i class="'+(l.length?'far fa-image':'fas fa-chevron-right text-xs')+' ml-2 text-gray-400" aria-hidden="true"></i></button>';
+  const b=li.firstChild;b.querySelector('span').textContent=n;b.setAttribute('aria-label','Ver referencia y cotizar: '+n);
+  b.onclick=()=>abrir(n,l);
+ });
+ {const sub=document.querySelector('#catalogo > div > p');if(sub)sub.textContent+=' Toca una prenda para ver su referencia o cotizarla.'}
+ document.getElementById('prod-close').onclick=()=>d.close();
+ pp.onclick=()=>mover(-1);pn.onclick=()=>mover(1);
+ d.addEventListener('click',e=>{if(e.target===d)d.close()});
+ d.addEventListener('keydown',e=>{if(lista.length>1){if(e.key==='ArrowLeft')mover(-1);if(e.key==='ArrowRight')mover(1)}});
+})();
 </script>
 </body>
 </html>
