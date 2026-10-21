@@ -227,12 +227,12 @@ h1,h2,h3,.display{font-family:'Archivo',sans-serif}
    </div>
    <div><label for="detalle" class="block text-sm font-bold mb-1.5">Detalle de prendas y diseño</label><textarea id="detalle" name="detalle" rows="4" placeholder="Ej. polos manga corta, camisas con logo bordado, casacas térmicas, tallas..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[var(--navy)]"></textarea></div>
    <div>
-    <label for="foto" class="block text-sm font-bold mb-1.5">Foto de referencia (opcional)</label>
-    <p class="text-xs text-gray-600 mb-2">Sube una foto de la prenda (sobre una mesa, colgada o puesta). No se aceptan imágenes con contenido explícito. JPG, PNG o WEBP, hasta 8 MB.</p>
-    <input id="foto" type="file" accept="image/jpeg,image/png,image/webp" class="block w-full text-sm file:mr-3 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:bg-[var(--navy)] file:text-white file:font-bold hover:file:bg-[var(--navy2)]">
+    <label for="foto" class="block text-sm font-bold mb-1.5">Foto o PDF de referencia (opcional)</label>
+    <p class="text-xs text-gray-600 mb-2">Sube fotos de las prendas o un PDF que reúna varias (hasta 15 páginas). No se aceptan archivos con contenido explícito. Fotos JPG, PNG o WEBP de hasta 8 MB; PDF de hasta 10 MB.</p>
+    <input id="foto" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" class="block w-full text-sm file:mr-3 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:bg-[var(--navy)] file:text-white file:font-bold hover:file:bg-[var(--navy2)]">
     <div id="foto-prev" class="hidden mt-3 flex items-center gap-3">
-     <img id="foto-img" alt="Vista previa de la foto de referencia" class="w-24 h-24 object-cover rounded-lg border border-gray-300">
-     <button type="button" id="foto-quitar" class="text-sm font-bold text-red-700 underline">Quitar foto</button>
+     <img id="foto-img" alt="Vista previa del archivo de referencia" class="w-24 h-24 object-cover rounded-lg border border-gray-300">
+     <button type="button" id="foto-quitar" class="text-sm font-bold text-red-700 underline">Quitar archivo</button>
     </div>
     <p id="foto-msg" role="status" aria-live="polite" class="text-sm mt-2 text-gray-600"></p>
    </div>
@@ -248,25 +248,25 @@ h1,h2,h3,.display{font-family:'Archivo',sans-serif}
 <!-- PIE -->
 <footer class="bg-[#071c33] text-gray-300 py-12">
  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
-  <div><h4 class="display text-white font-extrabold text-lg">Corporación Lya Global SAC</h4><p class="mt-2">Confecciones textiles de calidad adaptadas a las necesidades del cliente.</p><!-- TODO: agregar RUC --></div>
+  <div><h4 class="display text-white font-extrabold text-lg">Corporación Lya Global SAC</h4><p class="mt-2">Confecciones textiles de calidad adaptadas a las necesidades del cliente.</p><p class="text-sm mt-3">RUC 20614931583<br>Emitimos factura electrónica.</p></div>
   <div><h4 class="text-white font-bold mb-2">Enlaces</h4><ul class="space-y-1"><li><a href="#inicio" class="hover:text-white">Inicio</a></li><li><a href="#catalogo" class="hover:text-white">Catálogo</a></li><li><a href="#nosotros" class="hover:text-white">Nosotros</a></li><li><a href="#contacto" class="hover:text-white">Cotización</a></li><li><a href="#privacidad" data-priv class="hover:text-white">Política de privacidad</a></li><li id="li-libro" hidden><a id="libro" href="#" target="_blank" rel="noopener" class="hover:text-white"><i class="fas fa-book-open mr-1" aria-hidden="true"></i>Libro de Reclamaciones</a></li></ul></div>
-  <div><h4 class="text-white font-bold mb-2">Contacto</h4><p><i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>Lima, Perú</p><p class="mt-1"><a href="https://wa.me/51958005201" target="_blank" rel="noopener" class="hover:text-white"><i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>958 005 201</a></p><!-- TODO: correo con dominio propio --><p class="mt-1"><a href="mailto:creacionestechi@outlook.com" class="hover:text-white"><i class="fas fa-envelope mr-2" aria-hidden="true"></i>creacionestechi@outlook.com</a></p></div>
+  <div><h4 class="text-white font-bold mb-2">Contacto</h4><p><i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>Lima, Perú</p><p class="mt-1"><a href="https://wa.me/51958005201" target="_blank" rel="noopener" class="hover:text-white"><i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>958 005 201</a></p><p class="mt-1 break-all"><a href="mailto:Iya.gIobaI.ventas@outlook.com" class="hover:text-white"><i class="fas fa-envelope mr-2" aria-hidden="true"></i>Iya.gIobaI.ventas@outlook.com</a></p></div>
  </div>
  <p class="max-w-7xl mx-auto px-4 mt-8 pt-4 border-t border-white/10 text-xs text-center">&copy; 2026 Corporación Lya Global SAC. Todos los derechos reservados.</p>
 </footer>
 
 <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20una%20cotizaci%C3%B3n%20con%20Corporaci%C3%B3n%20Lya" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" class="fixed bottom-5 right-5 z-50 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-3xl hover:scale-105 transition"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 
-<!-- POLÍTICA DE PRIVACIDAD: plantilla. Completa los [COMPLETAR] y haz que la revise un abogado antes de publicar -->
+<!-- POLÍTICA DE PRIVACIDAD: plantilla. Conviene que la revise un abogado. Si cambias el plazo de 12 meses, cúmplelo en la práctica -->
 <dialog id="privacidad" class="m-auto rounded-2xl p-0 w-[92vw] max-w-2xl backdrop:bg-black/60">
  <div class="p-6 sm:p-8 max-h-[85vh] overflow-y-auto text-sm text-gray-700 space-y-3">
   <h2 class="display font-black text-2xl text-gray-900">Política de Privacidad</h2>
-  <p><b>Titular del banco de datos:</b> Corporación Lya Global SAC, RUC [COMPLETAR], domicilio [COMPLETAR], Lima, Perú.</p>
-  <p><b>Datos que recogemos:</b> nombre o razón social, teléfono, correo (opcional), sector, cantidad y detalle de tu pedido, y la foto de referencia (opcional) que decidas enviar.</p>
+  <p><b>Titular del banco de datos:</b> Corporación Lya Global SAC, RUC 20614931583, con domicilio en Cal. Las Sensitivas 301, Urb. Las Violetas Etapa Dos, San Juan de Lurigancho, Lima, Perú.</p>
+  <p><b>Datos que recogemos:</b> nombre o razón social, teléfono, correo (opcional), sector, cantidad y detalle de tu pedido, y la foto o PDF de referencia (opcional) que decidas enviar.</p>
   <p><b>Para qué los usamos:</b> atender tu solicitud de cotización y comunicarnos contigo sobre ella. No usamos tus datos para publicidad ni los vendemos.</p>
   <p><b>Cómo se envían:</b> el formulario abre WhatsApp con tu mensaje, por lo que el envío también se rige por los términos de WhatsApp. Esta página no guarda tus datos en un servidor propio. El servicio de alojamiento puede registrar datos técnicos, como la dirección IP.</p>
-  <p><b>Tiempo de conservación:</b> [COMPLETAR].</p>
-  <p><b>Tus derechos:</b> puedes pedir acceso, rectificación, cancelación u oposición sobre tus datos, y los demás derechos que reconoce la Ley N.° 29733 y su Reglamento, escribiendo a [COMPLETAR correo]. También puedes presentar un reclamo ante la Autoridad Nacional de Protección de Datos Personales.</p>
+  <p><b>Tiempo de conservación:</b> conservamos tus datos mientras sean necesarios para atender tu cotización y, si no se concreta, hasta 12 meses para dar seguimiento; luego los eliminamos. Los datos necesarios para emitir comprobantes de pago se conservan por los plazos que exige la normativa tributaria.</p>
+  <p><b>Tus derechos:</b> puedes pedir acceso, rectificación, cancelación u oposición sobre tus datos, y los demás derechos que reconoce la Ley N.° 29733 y su Reglamento, escribiendo a <a href="mailto:Iya.gIobaI.ventas@outlook.com" class="underline font-bold break-all">Iya.gIobaI.ventas@outlook.com</a>. También puedes presentar un reclamo ante la Autoridad Nacional de Protección de Datos Personales.</p>
   <button type="button" id="priv-close" class="mt-2 bg-[var(--navy)] text-white font-bold px-5 py-2.5 rounded-lg">Cerrar</button>
  </div>
 </dialog>
@@ -316,7 +316,7 @@ show(0);schedule();
 
 // Foto de referencia: valida que sea una prenda (sin personas)
 const foto=document.getElementById('foto'),fprev=document.getElementById('foto-prev'),fimg=document.getElementById('foto-img'),fmsg=document.getElementById('foto-msg');
-let fotoCanvas=null,fotoOK=false,detP=null;
+let fotoCanvas=null,fotoOK=false,fotoTipo='img',detP=null;
 const msg=(t,ok)=>{fmsg.textContent=t;fmsg.className='text-sm mt-2 '+(ok===true?'text-green-700':ok===false?'text-red-700':'text-gray-600')};
 const cargar=src=>new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s)});
 const UMBRAL_EXPLICITO=0.35,UMBRAL_SEXY=0.8; // súbelos para ser más permisivo, bájalos para ser más estricto
@@ -331,43 +331,73 @@ function detector(){
  })().catch(e=>{detP=null;throw e});
  return detP;
 }
-function limpiarFoto(){fotoCanvas=null;fotoOK=false;foto.value='';fprev.classList.add('hidden');if(fimg.src.startsWith('blob:'))URL.revokeObjectURL(fimg.src);fimg.removeAttribute('src');msg('')}
+function limpiarFoto(){fotoCanvas=null;fotoOK=false;fotoTipo='img';foto.value='';fprev.classList.add('hidden');if(fimg.src.startsWith('blob:'))URL.revokeObjectURL(fimg.src);fimg.removeAttribute('src');msg('')}
 document.getElementById('foto-quitar').onclick=limpiarFoto;
+const MAX_PAG=15;
+const NO_APTA='Este archivo no cumple las normas: no aceptamos contenido explícito. Sube fotos de las prendas.';
+async function cargarPdfjs(){
+ if(window.pdfjsLib)return;
+ await cargar('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+ pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+async function explicito(cv){
+ try{
+  const m=await detector();
+  const pr=Object.fromEntries((await m.classify(cv)).map(x=>[x.className,x.probability]));
+  return (pr.Porn||0)+(pr.Hentai||0)>=UMBRAL_EXPLICITO||(pr.Sexy||0)>=UMBRAL_SEXY;
+ }catch(e){throw new Error('verif')}
+}
 foto.addEventListener('change',async()=>{
  const f=foto.files[0];
  if(!f){limpiarFoto();return}
- if(!/^image\/(jpeg|png|webp)$/.test(f.type)){limpiarFoto();msg('Formato no válido. Usa JPG, PNG o WEBP.',false);return}
- if(f.size>8*1024*1024){limpiarFoto();msg('La foto pesa más de 8 MB.',false);return}
- msg('Revisando la foto…');
+ const esPdf=f.type==='application/pdf';
+ if(!esPdf&&!/^image\/(jpeg|png|webp)$/.test(f.type)){limpiarFoto();msg('Formato no válido. Usa JPG, PNG, WEBP o PDF.',false);return}
+ const maxMB=esPdf?10:8;
+ if(f.size>maxMB*1024*1024){limpiarFoto();msg('El archivo pesa más de '+maxMB+' MB.',false);return}
+ msg(esPdf?'Revisando el PDF… puede tardar unos segundos.':'Revisando la foto…');
  try{
-  const bmp=await createImageBitmap(f),k=Math.min(1,1280/Math.max(bmp.width,bmp.height));
-  const c=document.createElement('canvas');c.width=Math.round(bmp.width*k);c.height=Math.round(bmp.height*k);
-  c.getContext('2d').drawImage(bmp,0,0,c.width,c.height); // reduce tamaño y elimina datos EXIF/ubicación
-  try{
-   const m=await detector();
-   const pr=Object.fromEntries((await m.classify(c)).map(x=>[x.className,x.probability]));
-   if((pr.Porn||0)+(pr.Hentai||0)>=UMBRAL_EXPLICITO||(pr.Sexy||0)>=UMBRAL_SEXY){limpiarFoto();msg('Esta imagen no cumple las normas: no aceptamos contenido explícito. Sube una foto de la prenda.',false);return}
-  }catch(err){limpiarFoto();msg('No pudimos verificar la foto. Inténtalo de nuevo o envía tu pedido sin foto.',false);return}
-  fotoCanvas=c;fotoOK=true;
+  let c,pags=0;
+  if(esPdf){
+   await cargarPdfjs();
+   const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;
+   pags=pdf.numPages;
+   if(pags>MAX_PAG){limpiarFoto();msg('El PDF tiene más de '+MAX_PAG+' páginas. Envía solo las páginas con las prendas.',false);return}
+   for(let n=1;n<=pags;n++){
+    const pg=await pdf.getPage(n),w0=pg.getViewport({scale:1}).width,vp=pg.getViewport({scale:Math.min(2,900/w0)});
+    const cv=document.createElement('canvas');cv.width=Math.round(vp.width);cv.height=Math.round(vp.height);
+    await pg.render({canvasContext:cv.getContext('2d'),viewport:vp}).promise;
+    if(n===1)c=cv;
+    if(await explicito(cv)){limpiarFoto();msg(NO_APTA+' (página '+n+')',false);return}
+   }
+  }else{
+   const bmp=await createImageBitmap(f),k=Math.min(1,1280/Math.max(bmp.width,bmp.height));
+   c=document.createElement('canvas');c.width=Math.round(bmp.width*k);c.height=Math.round(bmp.height*k);
+   c.getContext('2d').drawImage(bmp,0,0,c.width,c.height); // reduce tamaño y elimina datos EXIF/ubicación
+   if(await explicito(c)){limpiarFoto();msg(NO_APTA,false);return}
+  }
+  fotoCanvas=c;fotoTipo=esPdf?'pdf':'img';fotoOK=true;
   fimg.src=URL.createObjectURL(await new Promise(r=>c.toBlob(r,'image/jpeg',0.85)));
   fprev.classList.remove('hidden');
-  msg('Foto lista.',true);
- }catch(err){limpiarFoto();msg('No se pudo leer la imagen. Prueba con otra foto.',false)}
+  msg(esPdf?'PDF listo ('+pags+' páginas). Al enviar el pedido, adjúntalo en el chat de WhatsApp.':'Foto lista.',true);
+ }catch(err){
+  limpiarFoto();
+  msg(err.message==='verif'?'No pudimos verificar el archivo. Inténtalo de nuevo o envía tu pedido sin archivo.':(esPdf?'No se pudo leer el PDF (puede estar dañado o protegido con contraseña).':'No se pudo leer la imagen. Prueba con otra foto.'),false);
+ }
 });
 
 // Formulario -> WhatsApp
 document.getElementById('form-cotizacion').addEventListener('submit',async e=>{
  e.preventDefault();const f=e.target,v=n=>f.elements[n].value.trim();
- const L=['Hola, deseo una cotización formal con Corporación Lya Global.','Nombre/Razón social: '+v('nombre'),'Teléfono: '+v('telefono'),v('correo')?'Correo: '+v('correo'):'','Sector: '+v('sector'),v('cantidad')?'Cantidad estimada: '+v('cantidad')+' prendas':'',v('detalle')?'Detalle: '+v('detalle'):'',fotoOK?'Te enviaré una foto de referencia de la prenda.':''].filter(Boolean);
+ const L=['Hola, deseo una cotización formal con Corporación Lya Global.','Nombre/Razón social: '+v('nombre'),'Teléfono: '+v('telefono'),v('correo')?'Correo: '+v('correo'):'','Sector: '+v('sector'),v('cantidad')?'Cantidad estimada: '+v('cantidad')+' prendas':'',v('detalle')?'Detalle: '+v('detalle'):'',fotoOK?(fotoTipo==='pdf'?'Te enviaré un PDF de referencia con fotos de las prendas.':'Te enviaré una foto de referencia de la prenda.'):''].filter(Boolean);
  const url='https://wa.me/51958005201?text='+encodeURIComponent(L.join('\n'));
  const w=window.open('','_blank');
- if(fotoOK&&fotoCanvas&&navigator.clipboard&&window.ClipboardItem){
+ if(fotoOK&&fotoTipo==='img'&&fotoCanvas&&navigator.clipboard&&window.ClipboardItem){
   try{
    const png=await new Promise(r=>fotoCanvas.toBlob(r,'image/png'));
    await navigator.clipboard.write([new ClipboardItem({'image/png':png})]);
    msg('Foto copiada: en el chat de WhatsApp pégala con Ctrl+V (⌘+V en Mac).',true);
   }catch(err){msg('En WhatsApp, adjunta tu foto con el ícono del clip.',true)}
- }else if(fotoOK){msg('En WhatsApp, adjunta tu foto con el ícono del clip.',true)}
+ }else if(fotoOK){msg(fotoTipo==='pdf'?'En WhatsApp, adjunta tu PDF con el clip (opción Documento).':'En WhatsApp, adjunta tu foto con el ícono del clip.',true)}
  if(w){w.opener=null;w.location=url}else{location.href=url}
 });
 
