@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pagina-web-two-fawn.vercel.app/sitemap.xml
+Sitemap: https://uniformeslya.vercel.app/sitemap.xml
