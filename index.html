@@ -4,7 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corporación Lya Global SAC | Uniformes y Confección Textil en Lima</title>
-<meta name="description" content="Confección de uniformes industriales, corporativos y escolares a la medida en Lima, Perú. Cotiza por WhatsApp.">
+<meta name="description" content="Confeccionamos uniformes industriales, corporativos y escolares en Lima según tu modelo. Envía tu foto o PDF y cotiza por WhatsApp.">
+<link rel="canonical" href="https://pagina-web-two-fawn.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="Corporación Lya Global">
+<meta property="og:title" content="Corporación Lya Global SAC | Uniformes y Confección Textil en Lima">
+<meta property="og:description" content="Confeccionamos uniformes industriales, corporativos y escolares en Lima según tu modelo. Envía tu foto o PDF y cotiza por WhatsApp.">
+<meta property="og:url" content="https://pagina-web-two-fawn.vercel.app/">
+<meta property="og:image" content="https://pagina-web-two-fawn.vercel.app/og-image-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Corporación Lya Global: uniformes hechos según tu modelo">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Corporación Lya Global","legalName":"Corporación Lya Global S.A.C.","url":"https://pagina-web-two-fawn.vercel.app/","telephone":"+51958005201","areaServed":"Lima, Perú"}
+</script>
 <meta name="theme-color" content="#0b2a4a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,9 +58,9 @@ h1,h2,h3,.display{font-family:'Archivo',sans-serif}
 <!-- CABECERA -->
 <header class="fixed top-0 inset-x-0 z-50 transition-colors duration-300" id="nav">
  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-  <a href="#inicio" class="flex items-center gap-2 text-white">
-   <span class="display bg-[var(--tape)] text-[var(--navy)] font-black px-2 py-1 rounded text-lg tracking-wide">CLG</span>
-   <span class="display font-extrabold hidden sm:inline">Corporación Lya Global</span>
+  <a href="#inicio" class="flex items-center gap-2 text-white min-w-0">
+   <span class="display bg-[var(--tape)] text-[var(--navy)] font-black px-2 py-1 rounded text-lg tracking-wide shrink-0">CLG</span>
+   <span class="display font-extrabold leading-tight text-[13px] sm:text-base lg:text-lg">Corporación Lya Global</span>
   </a>
   <nav class="hidden md:flex gap-7 text-sm font-medium text-white/90" aria-label="Principal">
    <a href="#inicio" class="hover:text-[var(--tape)]">Inicio</a>
@@ -55,7 +70,7 @@ h1,h2,h3,.display{font-family:'Archivo',sans-serif}
    <a href="#contacto" class="hover:text-[var(--tape)]">Contacto</a>
   </nav>
   <div class="flex items-center gap-2">
-   <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20una%20cotizaci%C3%B3n%20con%20Corporaci%C3%B3n%20Lya" target="_blank" rel="noopener" class="bg-[var(--tape)] text-[var(--navy)] font-bold text-sm px-4 py-2 rounded-full hover:brightness-110 flex items-center gap-2"><i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>Cotizar</a>
+   <a href="https://wa.me/51958005201?text=Hola%2C%20deseo%20una%20cotizaci%C3%B3n%20con%20Corporaci%C3%B3n%20Lya" target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp" class="bg-[var(--tape)] text-[var(--navy)] font-bold text-sm px-3 sm:px-4 py-2 rounded-full hover:brightness-110 flex items-center gap-2 shrink-0"><i class="fab fa-whatsapp text-lg" aria-hidden="true"></i><span class="hidden min-[400px]:inline">Cotizar</span></a>
    <button id="menu-btn" type="button" class="md:hidden text-white text-2xl p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil"><i class="fas fa-bars" aria-hidden="true"></i></button>
   </div>
  </div>
@@ -271,10 +286,8 @@ h1,h2,h3,.display{font-family:'Archivo',sans-serif}
    <h3 id="prod-t" class="display font-extrabold text-xl mt-1"></h3>
    <p id="prod-d" class="text-sm text-gray-700 mt-2"></p>
    <p id="prod-i" hidden class="text-sm text-gray-700 mt-2"><b>Ideal para:</b> <span></span></p>
-   <div class="mt-3">
-    <p class="text-xs font-bold uppercase tracking-wider text-gray-500">Puedes definir</p>
-    <ul id="prod-ops" class="mt-1.5 flex flex-wrap gap-2 text-xs font-medium"></ul>
-   </div>
+   <div id="prod-elige" class="mt-4 space-y-3"></div>
+   <p id="prod-def" hidden class="text-xs text-gray-600 mt-3"><b>Lo definimos contigo:</b> <span></span>.</p>
    <p id="prod-n" hidden class="text-xs text-gray-600 mt-3"></p>
    <p class="text-xs text-gray-600 mt-3"><b>Para cotizar, cuéntanos:</b> cantidad aproximada, tallas, colores y logotipo. Puedes enviar una foto o PDF de tu modelo.</p>
    <p class="text-xs text-gray-500 mt-1">El diseño final se define según tu requerimiento.</p>
@@ -490,19 +503,22 @@ const PRODUCTOS={
  // 'Mochilas y maletines corporativos':[{src:'Prendas/mochila.jpg'}],
 };
 // Detalle que se muestra al abrir cada prenda. Edita los textos con las características reales de tus productos.
+const LOGO={g:'Logotipo',o:['Bordado','Estampado','Sin logotipo']},
+ MANGA={g:'Manga',m:true,o:['Corta','Larga']},
+ ESCUDO={g:'Escudo o logotipo',o:['Bordado','Estampado']};
 const DETALLES={
- 'Overoles industriales':{desc:'Prenda de una pieza que cubre torso y piernas, pensada para trabajos de campo, taller, planta o mantenimiento.',ideal:'Minería, mantenimiento, plantas, talleres y obras.',ops:['Tela y gramaje','Color','Cierre frontal','Bolsillos','Cinta reflectiva','Puños y tobillos ajustables','Logotipo bordado o estampado','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
- 'Chalecos con cinta reflectiva':{desc:'Chaleco que hace más visible a la persona en zonas de tránsito y trabajo. Puede llevar cinta reflectiva, bolsillos y cierre según tu modelo.',ideal:'Obras, minería, almacenes, tránsito y seguridad.',ops:['Color (naranja, amarillo u otro)','Cinta reflectiva: cantidad y ubicación','Cierre de cremallera o velcro','Bolsillos','Logotipo bordado o estampado','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
- 'Casacas térmicas e impermeables':{desc:'Casaca para clima frío o lluvia, pensada para jornadas al aire libre.',ideal:'Trabajo en campo, zonas altas, vigilancia y operaciones al aire libre.',ops:['Tipo de tela','Forro térmico','Capucha','Bolsillos','Cinta reflectiva','Color','Logotipo bordado o estampado','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
- 'Pantalones de trabajo pesado':{desc:'Pantalón con costuras reforzadas para un uso diario exigente.',ideal:'Minería, construcción, mantenimiento y talleres.',ops:['Tela y gramaje','Color','Bolsillos laterales o tipo cargo','Cinta reflectiva','Refuerzos','Tallas'],nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
- 'Camisas y blusas ejecutivas':{desc:'Camisas y blusas para equipos de oficina y atención al público, con la imagen de tu marca.',ideal:'Oficinas, bancos, recepción y atención al cliente.',ops:['Manga corta o larga','Color','Tela','Corte para hombre o mujer','Logotipo bordado','Tallas']},
- 'Pantalones de vestir':{desc:'Pantalones de corte formal para uniformes administrativos.',ideal:'Oficinas y atención al público.',ops:['Tela','Color','Corte para hombre o mujer','Bolsillos','Tallas']},
- 'Chalecos formales y casacas':{desc:'Chalecos y casacas para completar el uniforme corporativo.',ideal:'Oficinas, atención al público y uniformes corporativos.',ops:['Tela','Color','Cierre o botones','Logotipo bordado','Tallas']},
- 'Polos piqué manga corta y larga':{desc:'Polos de tela piqué, en manga corta o larga, con logo bordado o estampado.',ideal:'Personal administrativo y operativo, eventos y uniformes de empresa.',ops:['Manga corta o larga','Color y combinación de colores','Cuello y puños','Logotipo bordado o estampado','Tallas']},
- 'Polos escolares de algodón':{desc:'Polos de algodón para el uso diario en colegios, pensados para lavados continuos.',ideal:'Colegios e instituciones educativas.',ops:['Colores del colegio','Escudo bordado o estampado','Manga corta o larga','Tallas por edad']},
- 'Casacas y buzos de colegios':{desc:'Casacas y buzos con los colores y el escudo de la institución.',ideal:'Colegios, academias y clubes.',ops:['Colores y diseño de la institución','Escudo o logotipo','Cierre y bolsillos','Tallas por edad']},
- 'Medias, gorras y mandiles':{desc:'Complementos del uniforme escolar o institucional.',ideal:'Colegios e instituciones.',ops:['Colores','Escudo o logotipo','Tallas o medidas','Cantidad']},
- 'Mochilas y maletines corporativos':{desc:'Mochilas y maletines con el logo de tu empresa o institución.',ideal:'Empresas, colegios e instituciones.',ops:['Color','Logotipo bordado o estampado','Tamaño','Bolsillos y compartimentos','Cantidad']},
+ 'Overoles industriales':{desc:'Prenda de una pieza que cubre torso y piernas, pensada para trabajos de campo, taller, planta o mantenimiento.',ideal:'Minería, mantenimiento, plantas, talleres y obras.',elige:[{g:'Extras',m:true,o:['Cierre frontal','Bolsillos','Cinta reflectiva','Puños y tobillos ajustables']},LOGO],define:'tela y gramaje, color y tallas',nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Chalecos con cinta reflectiva':{desc:'Chaleco que hace más visible a la persona en zonas de tránsito y trabajo. Puede llevar cinta reflectiva, bolsillos y cierre según tu modelo.',ideal:'Obras, minería, almacenes, tránsito y seguridad.',elige:[{g:'Color',o:['Naranja','Amarillo','Otro color']},{g:'Cierre',o:['Cremallera','Velcro']},{g:'Extras',m:true,o:['Bolsillos']},LOGO],define:'cantidad y ubicación de la cinta reflectiva, tela y tallas',nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Casacas térmicas e impermeables':{desc:'Casaca para clima frío o lluvia, pensada para jornadas al aire libre.',ideal:'Trabajo en campo, zonas altas, vigilancia y operaciones al aire libre.',elige:[{g:'Extras',m:true,o:['Forro térmico','Capucha','Bolsillos','Cinta reflectiva']},LOGO],define:'tipo de tela, color y tallas',nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Pantalones de trabajo pesado':{desc:'Pantalón con costuras reforzadas para un uso diario exigente.',ideal:'Minería, construcción, mantenimiento y talleres.',elige:[{g:'Extras',m:true,o:['Bolsillos laterales','Bolsillos tipo cargo','Cinta reflectiva','Refuerzos']}],define:'tela y gramaje, color y tallas',nota:'Si tu empresa exige una norma o certificación específica, indícalo al cotizar.'},
+ 'Camisas y blusas ejecutivas':{desc:'Camisas y blusas para equipos de oficina y atención al público, con la imagen de tu marca.',ideal:'Oficinas, bancos, recepción y atención al cliente.',elige:[{g:'Prenda',m:true,o:['Camisas','Blusas']},MANGA,LOGO],define:'tela, color y tallas'},
+ 'Pantalones de vestir':{desc:'Pantalones de corte formal para uniformes administrativos.',ideal:'Oficinas y atención al público.',elige:[{g:'Corte',m:true,o:['Hombre','Mujer']}],define:'tela, color, bolsillos y tallas'},
+ 'Chalecos formales y casacas':{desc:'Chalecos y casacas para completar el uniforme corporativo.',ideal:'Oficinas, atención al público y uniformes corporativos.',elige:[{g:'Prenda',m:true,o:['Chalecos','Casacas']},LOGO],define:'tela, color, cierre o botones y tallas'},
+ 'Polos piqué manga corta y larga':{desc:'Polos de tela piqué, en manga corta o larga, con logo bordado o estampado.',ideal:'Personal administrativo y operativo, eventos y uniformes de empresa.',elige:[MANGA,LOGO],define:'color y combinación de colores, cuello y puños, y tallas'},
+ 'Polos escolares de algodón':{desc:'Polos de algodón para el uso diario en colegios, pensados para lavados continuos.',ideal:'Colegios e instituciones educativas.',elige:[MANGA,ESCUDO],define:'colores del colegio y tallas por edad'},
+ 'Casacas y buzos de colegios':{desc:'Casacas y buzos con los colores y el escudo de la institución.',ideal:'Colegios, academias y clubes.',elige:[{g:'Prenda',m:true,o:['Casacas','Buzos']},ESCUDO],define:'colores y diseño de la institución, cierre, bolsillos y tallas por edad'},
+ 'Medias, gorras y mandiles':{desc:'Complementos del uniforme escolar o institucional.',ideal:'Colegios e instituciones.',elige:[{g:'Prenda',m:true,o:['Medias','Gorras','Mandiles']},ESCUDO],define:'colores y tallas o medidas'},
+ 'Mochilas y maletines corporativos':{desc:'Mochilas y maletines con el logo de tu empresa o institución.',ideal:'Empresas, colegios e instituciones.',elige:[{g:'Producto',m:true,o:['Mochilas','Maletines']},LOGO],define:'color, tamaño y compartimentos'},
 };
 (function(){
  const d=document.getElementById('prod'),im=document.getElementById('prod-img'),er=document.getElementById('prod-err'),
@@ -514,13 +530,42 @@ const DETALLES={
   im.onerror=()=>{im.hidden=true;er.hidden=false};
   im.src=lista[i].src;
  }
+ let sel={};
+ const OFF='px-3 py-1.5 rounded-full text-xs font-bold border border-gray-300 bg-white text-gray-800 hover:border-[var(--navy)]',
+  ON='px-3 py-1.5 rounded-full text-xs font-bold border border-[var(--navy)] bg-[var(--navy)] text-white';
+ function waLink(){
+  const l=['Hola, deseo cotizar: '+nombre+'.'];
+  Object.keys(sel).forEach(g=>{if(sel[g].length)l.push('- '+g+': '+sel[g].join(', '))});
+  return 'https://wa.me/51958005201?text='+encodeURIComponent(l.join('\n'));
+ }
+ function pintarOpc(n){
+  const x=DETALLES[n]||{},cont=document.getElementById('prod-elige'),df=document.getElementById('prod-def');
+  sel={};cont.innerHTML='';
+  (x.elige||[LOGO]).forEach(gr=>{
+   sel[gr.g]=[];
+   const w=document.createElement('div'),t=document.createElement('p'),r=document.createElement('div');
+   t.className='text-xs font-bold uppercase tracking-wider text-gray-500';
+   t.textContent=gr.g+(gr.m?' (puedes elegir varios)':'');
+   r.className='mt-1.5 flex flex-wrap gap-2';r.setAttribute('role','group');r.setAttribute('aria-label',gr.g);
+   gr.o.forEach(o=>{
+    const b=document.createElement('button');b.type='button';b.textContent=o;b.className=OFF;b.setAttribute('aria-pressed','false');
+    b.onclick=()=>{
+     const on=sel[gr.g].includes(o);
+     sel[gr.g]=gr.m?(on?sel[gr.g].filter(v=>v!==o):[...sel[gr.g],o]):(on?[]:[o]);
+     [...r.children].forEach(c=>{const a=sel[gr.g].includes(c.textContent);c.setAttribute('aria-pressed',a);c.className=a?ON:OFF});
+     pw.href=waLink();
+    };
+    r.appendChild(b);
+   });
+   w.append(t,r);cont.appendChild(w);
+  });
+  df.hidden=!x.define;df.querySelector('span').textContent=x.define||'';
+ }
  function abrir(n,l){
   nombre=n;lista=l;i=0;pt.textContent=n;
-  {const x=DETALLES[n]||{},dd=document.getElementById('prod-d'),dn=document.getElementById('prod-n'),di=document.getElementById('prod-i'),ul=document.getElementById('prod-ops');
-   dd.textContent=x.desc||'';dd.hidden=!x.desc;dn.textContent=x.nota||'';dn.hidden=!x.nota;
-   di.hidden=!x.ideal;di.querySelector('span').textContent=x.ideal||'';
-   ul.innerHTML='';(x.ops||['Tela y gramaje','Colores','Tallas','Logotipo bordado o estampado']).forEach(t=>{const li=document.createElement('li');li.className='bg-gray-100 rounded-full px-3 py-1';li.textContent=t;ul.appendChild(li)})}
-  pw.href='https://wa.me/51958005201?text='+encodeURIComponent('Hola, deseo cotizar: '+n);
+  {const x=DETALLES[n]||{},dd=document.getElementById('prod-d'),dn=document.getElementById('prod-n'),di=document.getElementById('prod-i');dd.textContent=x.desc||'';dd.hidden=!x.desc;dn.textContent=x.nota||'';dn.hidden=!x.nota;di.hidden=!x.ideal;di.querySelector('span').textContent=x.ideal||''}
+  pintarOpc(n);
+  pw.href=waLink();
   pp.hidden=pn.hidden=l.length<2;ver();d.showModal();
  }
  const mover=k=>{i=(i+k+lista.length)%lista.length;ver()};
